@@ -1,11 +1,12 @@
 NAME = libasm.a
 NASM = nasm
 OPTIONS = -f elf64
-SOURCES = srcs/ft_strlen.asm \
-	srcs/ft_write.asm
-OBJECTS = $(SOURCES:.asm=.o)
+SOURCES = srcs/ft_strlen.s \
+	srcs/ft_write.s \
+	srcs/ft_read.s
+OBJECTS = $(SOURCES:.s=.o)
 
-%.o : %.asm
+%.o : %.s
 	$(NASM) $(OPTIONS) $<
 
 $(NAME): $(OBJECTS)
