@@ -1,11 +1,11 @@
-		global	ft_strlen
+		global	_ft_strlen
 
 		section	.text
-ft_strlen:
+_ft_strlen:
 		xor rsi, rsi
 		
 loop:
-		cmp 	[rdi], byte 0
+		cmp byte [rdi], 0
 		je	end
 		inc	rdi
 		inc	rsi

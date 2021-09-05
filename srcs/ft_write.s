@@ -1,8 +1,18 @@
-	global	ft_write
+	global	_ft_write
+	extern ___error
 
 	section	.text
-ft_write:
-	mov	rax, 1
+_ft_write:
+	mov			rax, 0x2000004
 	syscall
-	mov	rax, rdx
+	jc fail
+	ret
+
+fail:
+	push rdi
+	mov rdi, rax
+	call ___error
+	mov [rax], rdi
+	mov rax, -1
+	pop rdi
 	ret
