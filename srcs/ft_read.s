@@ -9,10 +9,9 @@ _ft_read:
 	ret
 
 fail:
-	push rdi
-	mov rdi, rax
+	push rax
 	call ___error
+	pop rdi
 	mov [rax], rdi
 	mov rax, -1
-	pop rdi
 	ret
